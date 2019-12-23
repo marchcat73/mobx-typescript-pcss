@@ -1,10 +1,8 @@
 module.exports = {
-  test: /\.pcss$/,
-  exclude: /node_modules/,
-  loader: 'postcss-loader',
-  parser: 'postcss-scss',
+  // parser: 'postcss-scss',
   plugins: [
     require('postcss-import'),
+    require('postcss-loader'),
     require('postcss-preset-env')({
       stage: 1,
     }),
@@ -14,6 +12,6 @@ module.exports = {
     require('postcss-all-link-colors'),
     require('postcss-css-variables'),
     require('postcss-minimize'),
-    require('postcss-scss'),
+    // require('postcss-scss'),
   ],
 }
