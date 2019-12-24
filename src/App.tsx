@@ -2,7 +2,7 @@ import React from 'react';
 import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
 
-import './App.pcss';
+import './App.css';
 
 class HelloData {
   @observable clickedCount = 0;

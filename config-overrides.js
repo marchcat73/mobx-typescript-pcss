@@ -1,28 +1,19 @@
 module.exports = config => {
   require('react-app-rewire-postcss')(config, {
-    module: {
-      rules: [
-        {
-          test: /\.pcss$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: 'style-loader',
-            },
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-              }
-            },
-            {
-              loader: 'postcss-loader'
-            }
-          ]
-        }
-      ]
-    }
+     plugins: loader => [
+      require('postcss-preset-env')({
+        stage: 1
+      }),
+      require('postcss-safe-parser'),
+      require('postcss-import'),
+      require('postcss-nested'),
+      require('autoprefixer'),
+      require('postcss-extend'),
+      require('postcss-all-link-colors'),
+      require('postcss-css-variables'),
+      require('postcss-minimize'),
+    ]
   });
-
+ 
   return config;
 };
