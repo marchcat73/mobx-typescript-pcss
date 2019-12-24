@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+
+https://coursehunter.net/course/razrabatyvayte-prilozheniya-react-s-pomoshchyu-mobx-i-typescript
 
 ## Available Scripts
 
