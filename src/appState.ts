@@ -1,6 +1,4 @@
-import { observable, action } from 'mobx'
-
-import { FieldState } from 'formstate'
+import { observable, action } from 'mobx';
 
 /** 
  * Features
@@ -9,24 +7,28 @@ import { FieldState } from 'formstate'
  * - Ability to add this *current* string to the list of items
  * - Add an option to reset the items and the *current* string
  */
-
 class ApplicationState {
   @observable
   items: string[] = [];
 
   @observable
-  currentItem = new FieldState('')
+  currentItem = '';
+
+  @action
+  changeCurrentItem(newValue: string) {
+    this.currentItem = newValue;
+  }
 
   @action
   addCurrentItem() {
-    this.items.push(this.currentItem.value);
-    this.currentItem.onChange('');
+    this.items.push(this.currentItem);
+    this.currentItem = '';
   }
 
   @action
   reset() {
     this.items = [];
-    this.currentItem.onChange('');
+    this.currentItem = '';
   }
 }
 
