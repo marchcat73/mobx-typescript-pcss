@@ -1,8 +1,10 @@
-import React from 'react';
-import { observable, action, configure, computed } from 'mobx';
-import { observer } from 'mobx-react';
+import React from 'react'
+import { observable, action, configure, computed } from 'mobx'
+import { observer } from 'mobx-react'
 
-import './App.css';
+import Form from './Form'
+
+import './App.css'
 
 /** Writing asynchronous actions */
 configure({
@@ -39,6 +41,7 @@ class App extends React.Component<{}> {
           this.data.hasBeenClicked
           && <div>You have clicked the button!</div>
         }
+        <Form />
       </>
     );
   }
