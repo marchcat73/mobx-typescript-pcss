@@ -2,6 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 
 import { appState } from './appState'
+import { FieldInput } from './field'
 
 @observer
 class Form extends React.Component<{}> {
@@ -12,9 +13,7 @@ class Form extends React.Component<{}> {
           e.preventDefault();
           appState.addCurrentItem();
         }}>
-          <input
-            value={appState.currentItem}
-            onChange={e => appState.changeCurrentItem(e.target.value)} />
+          <FieldInput fieldState={appState.currentItem} />
           <button type="submit">
             Add
           </button>

@@ -1,5 +1,7 @@
 import { observable, action } from 'mobx'
 
+import { FieldState } from 'formstate'
+
 /** 
  * Features
  * - Store a list of items (strings) 
@@ -13,23 +15,18 @@ class ApplicationState {
   items: string[] = [];
 
   @observable
-  currentItem = '';
-
-  @action
-  changeCurrentItem(newValue: string) {
-    this.currentItem = newValue;
-  }
+  currentItem = new FieldState('')
 
   @action
   addCurrentItem() {
-    this.items.push(this.currentItem);
-    this.currentItem = '';
+    this.items.push(this.currentItem.value);
+    this.currentItem.onChange('');
   }
 
   @action
   reset() {
     this.items = [];
-    this.currentItem = '';
+    this.currentItem.onChange('');
   }
 }
 
