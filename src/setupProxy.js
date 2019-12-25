@@ -3,7 +3,7 @@ const proxy = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    proxy('/api/v1/' /** '' */, {
+    proxy(/** /api/v1/ */ '', {
       target: 'https://me-dev.docker.simbirsoft',
       changeOrigin: true,
       secure: false,
